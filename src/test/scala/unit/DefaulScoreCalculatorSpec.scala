@@ -16,7 +16,7 @@ class DefaultScoreCalculatorSpec extends WordSpec {
 
 	val calc = new DefaultScoreCalculator
 	
-    "frame is less than 10" should {
+    "frame is no spare nor strike" should {
 		"add both rolls" in {
 			calc.calculate(List(2, 6)) should be(8)
 		}
