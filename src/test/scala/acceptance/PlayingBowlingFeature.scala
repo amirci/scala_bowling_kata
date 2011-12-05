@@ -19,20 +19,8 @@ class PlayingBowlingFeature extends FeatureSpec with GivenWhenThen {
 		val game = new BowlingGame(new DefaultScoreCalculator)
 
 		when("I do a strike on every frame")
-		val actual = game
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-			.roll(10)
-		
+		val actual = (1 to 12).foldLeft(game) { (newGame, i) => newGame.roll(10) }
+
 		then("The score should be perfect!")
 		actual.score should be(300)
     }
@@ -42,17 +30,7 @@ class PlayingBowlingFeature extends FeatureSpec with GivenWhenThen {
 		val game = new BowlingGame(new DefaultScoreCalculator)
 
 		when("I miss all the pins every single frame")
-		val actual = game
-			.roll(0)
-			.roll(0)
-			.roll(0)
-			.roll(0)
-			.roll(0)
-			.roll(0)
-			.roll(0)
-			.roll(0)
-			.roll(0)
-			.roll(0)
+		val actual = (1 to 10).foldLeft(game) { (newGame, i) => newGame.roll(0) }
 		
 		then("The score should be the lowest possible")
 		actual.score should be(0)

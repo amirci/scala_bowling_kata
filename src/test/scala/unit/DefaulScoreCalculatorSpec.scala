@@ -30,7 +30,10 @@ class DefaultScoreCalculatorSpec extends WordSpec {
 	
 	"frame is a strike" should {
 		"add both next rolls" in {
-			calc.calculate(List(8, 2, 4, 2)) should be(22)
+			calc.calculate(List(10, 4, 2)) should be(22)
+		}
+		"add both next rolls but not for the last two" in {
+			calc.calculate(List(10, 10, 10)) should be(30)
 		}
 	}
   }
