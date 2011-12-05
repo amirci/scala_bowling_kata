@@ -16,7 +16,7 @@ class PlayingBowlingFeature extends FeatureSpec with GivenWhenThen {
 	
     scenario("Playing a perfect game") {
 		given("A default bowling game")
-		val game = new BowlingGame(new ScoreCalculator)
+		val game = new BowlingGame(new DefaultScoreCalculator)
 
 		when("I do a strike on every frame")
 		val actual = game
@@ -39,7 +39,7 @@ class PlayingBowlingFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Playing the worst game possible") {
 		given("A default bowling game")
-		val game = new BowlingGame(new ScoreCalculator)
+		val game = new BowlingGame(new DefaultScoreCalculator)
 
 		when("I miss all the pins every single frame")
 		val actual = game

@@ -1,6 +1,11 @@
 package mavent.bowlingkata
 
-class ScoreCalculator {
+trait ScoreCalculator {
+	
+	def calculate(rolls: Iterable[Int]) : Int 
+}
+
+class DefaultScoreCalculator extends ScoreCalculator {
 	
 	def calculate(rolls: Iterable[Int]) : Int = {
 		0

@@ -17,7 +17,7 @@ class BowlingGameSpec extends Spec with MockFactory with ProxyMockFactory {
     it("Should call the calculator with the rolls list") {
 		val calc = mock[ScoreCalculator]
 		
-		calc expects 'calculate withArgs(*) returning 100
+		calc expects 'calculate withArgs(List(8, 1, 2, 3)) returning 100
 
 		val game = new BowlingGame(calc)
 		
